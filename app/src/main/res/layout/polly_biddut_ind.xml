@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#d3dee7"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#0dbead"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:text="বিসমিল্লাহির রাহমানির রাহিম"/>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:text="কক্সবাজার পল্লী বিদ্যুৎ সমিতি ১৯৯১ ইং সালে কার্যক্রম শুরুর প্রারম্ভিক সময় হতে কক্সবাজার জেলার কৃষি, শিল্প ও আর্থ-সামাজিক অবস্থার উন্নয়নে ব্যাপক ভূমিকা রেখে চলেছে। আধুনিক সেচ ব্যবস্থার মাধ্যমে খাদ্যে স্বয়ংসম্পূর্ণতা অর্জন, বৃহৎ-সহ মাঝারি ও ক্ষুদ্র শিল্পের ব্যাপক প্রসার এবং শিক্ষা-স্বাস্থ্য ও তথ্য প্রযুক্তি বিকাশের ক্ষেত্রে অগ্রণী ভূমিকা পালন করে কক্সবাজার জেলা তথা সারা বাংলাদেশের মানুষের জীবনযাত্রার মান উন্নয়নে দেশব্যাপী পরিচালিত পল্লী বিদ্যুতায়ন কার্যক্রমের একটি অংশরূপে কার্যকর ভূমিকা পালন করছে। লাভ নয়, লোকসান নয় - গ্রাহকগণই প্রকৃত মালিক ও সেবক মূলনীতিতে এবং সমবায় ভিত্তিতে কক্সবাজার পল্লী বিদ্যুৎ সমিতি এর কার্যক্রম পরিচালিত হয়।"
+                    android:textColor="#000000"
+                    android:layout_marginTop="13dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="বিদ্যুৎ বিল কমানোর ১০ উপায়"
+                    android:background="#0dbead"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:text="অনেক সময় বিদ্যুৎ বিল দেখে চমকে যেতে হয় আমাদের। প্রশ্ন থাকে আমি তো ইলেকট্রনিক্স সামগ্রী অনেক কম ব্যবহার করি, তবুও এত বিল আসে কেন! কিন্তু অনেক সময় আমাদের কিছু গাফিলতির কারণেও বাড়তে থাকে বিল, যা আমরা জানি না। জেনে নিন বিদ্যুৎ বিল কমানোর ১০ টি সাধারণ উপায়।\n\nসুইচ অফ:\tযখন ঘরে থাকবেন না অপ্রয়োজনে আলো, পাখা চালিয়ে রাখবেন না। সুইচ অফ করে রাখুন।\n\nআনপ্লাগ:\tযখন মেশিন বা ইস্ত্রি ব্যবহার করবেন না তখন প্লাগ খুলে রাখুন। প্লাগ লাগিয়ে সুইচ বন্ধ রাখলেও কিছুটা বিদ্যৎ টানে।\n\nপাখা:\tগরম কালে এসি চালালে তরতর করে বাড়ে বিদ্যুৎ বিল। অপ্রয়োজনে এসি না চালিয়ে পাখা চালান। এতে খরচ অনেক কমে যাবে।\n\nব্লাইন্ড:\tএসির খরচ বাঁচাতে ঘর ঠান্ডা রাখার অন্য পন্থা নিন। উইন্ডো ব্লাইন্ড ব্যবহার করুন জানালায়।\n\nফ্রজেন ফুড:\tরান্না করার বেশ কিছুক্ষণ আগে ফ্রিজ থেকে খাবার বের করে পানিতে রেখে বরফ ছাড়িয়ে নিন। বার বার মাইক্রোওয়েভ চালিয়ে ডিফ্রস্ট করলে বিদ্যৎ বেশি খরচ হয়।\n\nকম্পিউটার:\tযখন ব্যবহার করবেন না তখন চালিয়ে রাখবেন না। বন্ধ করে রাখুন বা স্লিপ মোডে রাখুন। এতে বিদ্যুৎ কম খরচ হবে।\n\nওভেনের দরজা:\tরান্না করতে করতে বার বার ওভেনের দরজা খুলবেন না। বাইরে থেকেই দেখে বোঝার চেষ্টা করুন। দরজা খুললে তাপমাত্রা কমে যায়। আবার আগের অবস্থায় ফিরিয়ে আনতে ওভেন বেশি বিদ্যুৎ খায়।\n\nঅল্প খাবার:\tযদি আপনার অল্প-স্বল্প কিছু রান্না করার থাকে তাহলে মাইক্রোওয়েভ ওভেনের বদলে স্লো কুকার বা টোস্টার ব্যবহার করুন। এতে বিদ্যুৎ কম খরচ হবে।\n\nরেফ্রিজারেটর:\tরেফ্রিজরেটরের তাপমাত্রা রাখুন ২ ডিগ্রি সেন্টিগ্রেডে। আর ফ্রিজারের তাপমাত্রা রাখুন -১৮ ডিগ্রি সেন্টিগ্রেডে। এতে খাবার সুরক্ষিত থাকবে। বেশি ঠান্ডা করে রাখলে বিদ্যুৎ নষ্ট হয়।\n\nডিশওয়াশার:\tঅনেকেই বাড়িতে ডিশ ওয়াশার ব্যবহার করি। কিন্তু বাসন ধুয়ে শুকানোর জন্য হিট ড্রাই না করে খোলা স্থানে ছড়িয়ে রাখুন।\n\n\n"
+                    android:textColor="#000000"
+                    android:layout_marginTop="10dp"
+                    />
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/polly_footer">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#d3dee7"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#0dbead"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:text="বিসমিল্লাহির রাহমানির রাহিম"/>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:text="আমাদের প্রত্যাহিক জীবনে ফার্মেসির সেবা সবার প্রয়োজন। অনেক সময় ডাক্তারের অবর্তমানে আমরা ফার্মেসি থেকে সেবা নিয়ে থাকি। এমন কতগুলু সময় আসে ডাক্তারের প্রেসক্রিফশন বুঝা নিয়ে আমাদের সমস্যা হয়। প্রসক্রিফশন না বুঝার কারনে অনেক সময় আমরা ভুল নিয়মে ওষুধ সেবন করে থাকি। বিশেষ করে গরীব মানুষদের আর্থিক সমস্যার কারনে প্রাথমিক চিকিৎসার জন্য ফার্মেসির কাছে শরানাপন্ন হয়। আমরা ফার্মেসি থেকে যে সব সেবা পেতে পারি......\n\n১। প্রেসক্রিফশন বুঝতে অসুবিধা।\n২। ওষুদের কার্যপ্রণালী সম্পর্কে জানা।\n৩। ওষুদের গ্রুপ সম্পর্কে ধারণা পাওয়া।\n৪। প্রাথমিক চিকিৎসার ধারণা ইত্যাদি।"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ফার্মেসি কর্তৃপক্ষের সাথে কিভাবে যোগাযোগ করবেন?"
+                    android:background="#0dbead"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:layout_marginTop="10dp"
+                    android:text="আপনার প্রয়োজন অনুযায়ী কাঙ্খিত ফার্মেসি কর্তৃপক্ষের নামের পাশে কল বাটনে ক্লিক করে ফার্মেসি কর্তৃপক্ষের সাথে সরাসরি ফোনে কথা বলতে পারবেন।\n\nবিদ্রঃ বিনা কারনে ফোন করে বিরক্ত করবেন না।\n\n\n"
+                    />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/fermacy_footer">
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

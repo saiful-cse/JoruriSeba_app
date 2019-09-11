@@ -1,0 +1,89 @@
+<resources>
+
+    <string name="server_url">http://creativesaif.com/joruri_seba/</string>
+
+    <string name="app_name">জরুরী সেবা</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- for alert dialog text -->
+    <string name="warningTitle">দুঃখিত!!</string>
+    <string name="successTitle">ধন্যবাদ</string>
+    <string name="warningMessageNumberNotFound">এই মোবাইল নং দিয়ে রেজিস্ট্রেশন হয়নি।</string>
+    <string name="warningMessageLoginError">একটু পর আবার চেষ্টা করতে থাকুন, তাও যদি না হয় তাহলে সফটওয়ার ডেভলপারের সাথে যোগাযোগ করুন।</string>
+    <string name="successMessage">ধন্যবাদ</string>
+
+
+    <string name="terms_policy">এই অ্যাপটি শুধুমাত্র কক্সবাজার জেলার অন্তর্গত খরুলিয়া এলাকার জন্য তৈরী করা হয়েছে। এই এলাকার বহির্ভূত অনধিকার রেজিস্ট্রেশন/লগইন করা নিষেধ। এই অ্যাপটির যেকোন তথ্য নিয়ে কারো প্রতি প্রতারনামুলক কর্মকাণ্ড করা যাবেনা। এই  অ্যাপটি শুধুমাত্র জনগনের সেবামুলক কাজে ব্যবহার করার জন্য অনুরোধ রইল।</string>
+
+    <string name="nameerror">সঠিক নাম দিন</string>
+    <string name="mobileerror">সঠিক মোবাইল নং দিন</string>
+
+    <string-array name="area">
+        <item>---</item>
+        <item>মাস্টার পাড়া</item>
+        <item>মাস্টার বাড়ী</item>
+        <item>চেয়ারম্যান পাড়া</item>
+        <item>বেপারি পাড়া</item>
+        <item>মকবুল সওদাগর</item>
+        <item>দরগাহ পাড়া</item>
+        <item>ঘাট পাড়া</item>
+        <item>নয়া পাড়া</item>
+        <item>কোণার পাড়া</item>
+        <item>সিকদার পাড়া</item>
+    </string-array>
+
+    <string-array name="service">
+        <item>---</item>
+        <item>cng</item>
+        <item>doctor</item>
+        <item>elec</item>
+        <item>gas</item>
+        <item>pharmacy</item>
+        <item>polly</item>
+    </string-array>
+
+    <string name="action_about">About App</string>
+    <string name="action_developer">Developer</string>
+    <string name="action_admin">Admin</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Log Out</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="title_activity_doctor">ডাক্তার</string>
+    <string name="title_activity_fermacy">ফার্মেসি</string>
+    <string name="title_activity_cng">সি এন জি অটো</string>
+    <string name="title_activity_gas">গ্যাস</string>
+    <string name="title_activity_elec">ইলেক্ট্রিশিয়ান</string>
+    <string name="title_activity_polly_biddut">পল্লি বিদ্যুৎ</string>
+    <string name="title_activity_fire_service">ফায়ার সার্ভিস</string>
+    <string name="title_activity_loged">Loged</string>
+
+    <!-- AdMob ad unit IDs -->
+    <string name="doctor_footer">ca-app-pub-3297830572264339/6774056404</string>
+    <string name="doctor_insts">ca-app-pub-3297830572264339/7547659405</string>
+
+    <string name="fermacy_footer">ca-app-pub-3297830572264339/8741428404</string>
+    <string name="fermacy_intst">ca-app-pub-3297830572264339/6924842878</string>
+
+    <string name="cng_footer">ca-app-pub-3297830572264339/3680989200</string>
+    <string name="cng_intst">ca-app-pub-3297830572264339/1781339161</string>
+
+    <string name="gas_footer">ca-app-pub-3297830572264339/9587922006</string>
+    <string name="gas_intst">ca-app-pub-3297830572264339/2127155227</string>
+
+    <string name="elec_footer">ca-app-pub-3297830572264339/9448321204</string>
+    <string name="elec_intst">ca-app-pub-3297830572264339/2020000557</string>
+
+    <string name="polly_footer">ca-app-pub-3297830572264339/3401787607</string>
+    <string name="polly_intst">ca-app-pub-3297830572264339/5462575638</string>
+
+    <string name="fsb_footer">ca-app-pub-3297830572264339/9308720402</string>
+    <string name="fsb_intst">ca-app-pub-3297830572264339/8226493862</string>
+
+    <string name="fsb_gogagog_footer1">ca-app-pub-3297830572264339/9021015609</string>
+    <string name="gas_gogagog_footer1">ca-app-pub-3297830572264339/6207150008</string>
+
+
+</resources>

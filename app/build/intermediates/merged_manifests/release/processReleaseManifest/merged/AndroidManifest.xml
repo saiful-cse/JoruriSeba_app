@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.coxtunes.joruriseba"
+    android:versionCode="11"
+    android:versionName="2.1" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="27" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.coxtunes.joruriseba.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.coxtunes.joruriseba.permission.C2D_MESSAGE" />
+
+    <application
+        android:name="com.coxtunes.joruriseba.MySingleton"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.coxtunes.joruriseba.SplashScreen.SplashScreen"
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.coxtunes.joruriseba.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Doctor.Doctor"
+            android:label="@string/title_activity_doctor"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.coxtunes.joruriseba.Developer" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Fermacy.Fermacy"
+            android:label="@string/title_activity_fermacy"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Cng.Cng"
+            android:label="@string/title_activity_cng"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Gas.Gas"
+            android:label="@string/title_activity_gas"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Electrician.Elec"
+            android:label="@string/title_activity_elec"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Polly_biddut.Polly_biddut"
+            android:label="@string/title_activity_polly_biddut"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Fire_service.Fire_service"
+            android:label="@string/title_activity_fire_service"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Log_in.Log_in"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.coxtunes.joruriseba.Log_in.Loged"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.coxtunes.joruriseba.AboutApp"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="153a8a5b2d99a10c8f2e7296650d2eb4988307a5" />
+
+        <activity
+            android:name="com.coxtunes.joruriseba.NewsPostUpdateRead.NewsFullView"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.coxtunes.joruriseba.NewsPostUpdateRead.AllNewsView"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.coxtunes.joruriseba.NewsPostUpdateRead.NewsUpdate"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.coxtunes.joruriseba.User_Login_Reg.User_Reg"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.coxtunes.joruriseba.User_Login_Reg.GettingNumber"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.coxtunes.joruriseba.User_Login_Reg.VerifuPhone"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name="com.coxtunes.joruriseba.Log_in.ContactInfoRead" />
+        <activity android:name="com.coxtunes.joruriseba.Log_in.ContactUpdate" />
+
+        <provider
+            android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.coxtunes.joruriseba.lifecycle-trojan"
+            android:exported="false"
+            android:multiprocess="true" />
+        <provider
+            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+            android:authorities="com.coxtunes.joruriseba.crashlyticsinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.coxtunes.joruriseba" />
+            </intent-filter>
+        </receiver>
+        <!--
+ FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.coxtunes.joruriseba.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

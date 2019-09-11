@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#d3dee7"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#0dbead"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:text="বিসমিল্লাহির রাহমানির রাহিম"/>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:text="প্রাকৃতিক গ্যাস একসময় একটি অপ্রয়োজনীয় পদার্থ হিসেবে চিহ্নিত হত, যা পেট্রোলিয়ামের সাথে উৎপাদিত হত। তবে বর্তমানে এটি একটি অত্যন্ত প্রয়োজনীয় পদার্থ। বাংলাদেশসহ বিশ্বের অন্যান্য অনেক দেশে প্রাকৃতিক গ্যাসের ব্যবহার খুবই ব্যাপক। এর প্রধান ব্যবহার জ্বালানি হিসেবে। রান্নার কাজে এর ব্যবহার রয়েছে। তবে সিলিন্ডারে করে যে গ্যাস সরবরাহ করা হয় তা প্রধানত বিউটেন। অনেক সার কারখানায় এর ব্যবহার রয়েছে। তাপবিদ্যুৎ কেন্দ্রেও এর ব্যবহার রয়েছে।"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0dbead"
+                    android:textSize="17sp"
+                    android:text="কীভাবে রান্নাঘরের সিলিন্ডারের যত্ন নেবেন যাতে বিস্ফোরণের সম্ভাবনা একেবারে কমে যায়?"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:text="১. প্রথমেই দেখে নিন, আভেন এবং সিলিন্ডারের মধ্যে পাইপ সঠিকভাবে লাগানো আছে কি না।\n\n২. এই পাইপ কোথাও নষ্ট হতে শুরু করেছে কি না, তা-ও দেখে নিন। সামান্য ত্রুটি চোখে পড়লেই বদলে ফেলুন।\n\n৩. সিলিন্ডারের কাছাকাছি কোনও পদার্থ, যা থেকে বড় ধরনের আগুন ছড়াতে পারে, রাখবেন না।\n\n৪. সিলিন্ডারের ‘নব’ থেকে গ্যাস লিক করছে কি না, নিয়মিত পরীক্ষা করুন।\n\n৫. সিলিন্ডারের ‘নব’ ঘোরানোর সময়ে গ্যাস বেরোচ্ছে কি না, দেখে নিন। যদি সামান্য বেরোয়, সমস্যা নেই। যে চাপে গ্যাস সিলিন্ডারে রাখা থাকে, তাতে ওইটুকু স্বাভাবিক। কিন্তু একটু বেশি হলেই সতর্ক হতে হবে।\n\n৬. রান্নার সময়ে গ্যাস বেরোচ্ছে কি না, সেটাও খেয়াল রাখুন।\n\n৭. গ্যাস ডেলিভারির সময়েই চেক করিয়ে নিন সিলিন্ডারের ভিতরের ওয়াশার।\n\n৮. সিলিন্ডারের উপরে ভারী কিছু রাখবেন না।"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0dbead"
+                    android:textSize="17sp"
+                    android:text="বাড়িতে গ্যাস সিলিন্ডার থাকলে এই ১০টি ভুল কখনওই করবেন নাঃ"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:text="১) গ্যাস সিলিন্ডারের সঙ্গে যে রবার পাইপটি থাকে, সেটিতে ‘আইএসআই’ ছাপ থাকা বাধ্যতামূলক। কিন্তু তার সঙ্গে আরও একটি বিষয় খেয়াল রাখুন, গ্যাসের পাইপটি যেন দৈর্ঘ্যে এক থেকে দেড় ফুটের বেশি লম্বা না হয়। সে ক্ষেত্রে পাইপ পরীক্ষার সময়ে অসুবিধা হবে।\n\n২) রেগুলেটেরর নজলটি যাতে পাইপ দিয়ে ভাল করে কভার করা থাকে, তা লক্ষ্য রাখুন। গরম বার্নারের সঙ্গে যাতে গ্যাসের পাইপ কোনও ভাবে লেগে না থাকে, তা খেয়াল রাখুন। \n\n৩) পাইপটি নিয়মিত ভিজে কাপড় দিয়ে পরিষ্কার করুন, কিন্তু ভুলেও সাবান জল ব্যবহার করবেন না। ২ বছর অন্তর অবশ্যই পাইপটি বদলে ফেলুন।\n\n৪) পরিষ্কার রাখার জন্য গ্যাসের পাইপটিকে কোনও রকমের কাপড় বা প্লাস্টিক জাতীয় জিনিস দিয়ে মুড়ে রাখবেন না। সে ক্ষেত্রে পাইপ ফেটে গেলে বা লিক হলে ধরা পড়বে না।\n\n৫) গ্যাস লিক হচ্ছে বুঝতে পারলে বাড়ির কোনও ইলেক্ট্রিক অ্যাপ্লায়েন্স অন করবেন না। ওভেন, রেগুলেটর বন্ধ করে জানলা, দরজা খুলে দিন।\n\n৬)  গ্যাস লিক করার পরে যদি কিছু ক্ষণের মধ্যে গন্ধ বন্ধ না হয়, তাহলে গ্যাস ডিস্ট্রিবিউটরের অফিস বা হেল্পলাইন নম্বরে ফোন করুন। সিলিন্ডার থেকে রেগুলেটর আলাদা করে দিয়ে সিলিন্ডারের মুখে সেফটি ক্যাপও পরিয়ে দিতে পারেন।\n\n৭) খালি সিলিন্ডার থেকে গ্যাসের রেগুলেটর খোলার সময় আশেপাশে কোনও মোমবাতি, প্রদীপ জাতীয় জিনিস যাতে না জ্বলে, তা খেয়াল রাখুন।\n\n৮) একটি ঘরে দু’টি সিলিন্ডার রাখার জন্য অন্তত ১০ বর্গফুট জায়গা থাকা জরুরি। এমন জায়গায় সিলিন্ডার রাখবেন না যেখানে সহজেই তা অতিরিক্ত গরম হয়ে যেতে পারে।\n\n ৯) সিলিন্ডারের উপররে কখনওই কোনও কাপড়, বাসন ইত্যাদি রাখবেন না। \n\n১০) গ্যাসের ওভেনটি সব সময়ে সিলিন্ডারের অন্তত ছয় ইঞ্চি উপরে রাখুন। ওভেনের উপর যাতে সরাসরি হাওয়া না লাগে, সেদিকে লক্ষ্য রাখুন।"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0dbead"
+                    android:textSize="17sp"
+                    android:text="গ্যাস সিলিন্ডারের মেয়াদ আছে কিনা জানবেন কীভাবে ?"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:text="আমরা প্রায় সবাই বাড়িতে গ্যাস-সিলিন্ডার ব্যাবহার করি, অনেক সময় শুনা যায় যে সিলিন্ডার ব্লাস্ট হয়ে মানুষ মারা গেছন, কিন্তু এটা ব্লাস্ট কেন হয় তা অনেকে জানি না। সব জিনিসের মত সিলিন্ডারেরও মেয়াদ শেষ বা expire date থাকে যা আমরা অনেকে জানি না। মেয়াদ শেষ হওয়া কোন সিলিন্ডারকে ঘরে রাখা মানে টাইম বোমা রাখার সমান।\nব্যাপার হল আমরা চিনব কিভাবে যে সিলিন্ডার মেয়াদ উত্তীর্ণ।\nসিলিন্ডারের গায়ে  মার্ক করা কালো রংগের লেখা টাই হল এক্সপায়ারি ডেট। এখানে A,B,C,D সংকেত দিয়ে বোঝানো হয়েছে।\n\n
+A= বছরের প্রথম তিন মাস যেমন জানুয়ারি, ফেব্রুয়ারি, মার্চ।\n
+B= তার পরের তিন মাস যেমন, এপ্রিল, মে, জুন। একইভাবে C,D দ্বারা ক্রমানুসারে বাকি ছয় মাসকেই বোঝানো হয়। আর সবার শেষে বছরের শেষ দুই ডিজিট থাকে, অর্থাৎ C13 (2013 ইং) যদি C18 থাকে তারমানে হল 2018 সালের জুলাই, আগস্ট, অথবা সেপ্টেম্বর মাসেই আপনার সিলিন্ডারের মেয়াদ বা (expire date) হবে।
+"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0dbead"
+                    android:textSize="17sp"
+                    android:text="গ্যাস সিলিন্ডারের অর্ডার কিভাবে করবেন?"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:text="আপনার রান্নায় ব্যবহত গ্যাস শেষ হলে দোকানের নামের পাশে কল বাটনে ক্লিক করে গ্যাস বিক্রেতার সাথে যোগাযোগ করুন। আপনি আপনার সুবিধা মত গ্যাস বুঝেন নিন।\n\n\n"
+                    android:layout_marginTop="10dp"
+                    />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/gas_footer">
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

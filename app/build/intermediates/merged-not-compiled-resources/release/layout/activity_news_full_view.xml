@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#bcdbf2"
+    tools:context=".NewsPostUpdateRead.NewsFullView">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#ffffff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/iv_photo"
+                android:src="@drawable/doctor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:id="@+id/tv_news_title"
+                android:text="হতদরিদ্রদের মাঝে আসবাবপত্র, রিক্সা বিতরণ ও দোয়া পরিচালনার মাধ্যমে অমাখোঁ (অসহায় মানুষের খোঁজে) পরিবারের প্রতিষ্ঠাবার্ষিকী সম্পন্ন হলো।"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:id="@+id/tv_news_time"
+                android:text="19/07/2018-07:56:20" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:id="@+id/tv_news_editor"
+                android:text="সাইফুল" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textSize="17sp"
+                android:textColor="#000000"
+                android:id="@+id/tv_news_desc"
+                android:text="হতদরিদ্রদের মাঝে আসবাবপত্র, রিক্সা বিতরণ ও দোয়া পরিচালনার মাধ্যমে অমাখোঁ (অসহায় মানুষের খোঁজে) পরিবারের প্রতিষ্ঠাবার্ষিকী সম্পন্ন হলো।"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

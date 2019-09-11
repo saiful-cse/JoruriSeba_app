@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">16703997172-to9c92pnsnumqsaonsijo51kr464sjh5.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://joruri-seba.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">16703997172</string>
+    <string name="google_api_key" translatable="false">AIzaSyD39mi2kNXAWBuKmBtbVQlvs1i6DlBDkyM</string>
+    <string name="google_app_id" translatable="false">1:16703997172:android:e4b41e29d419af8a</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD39mi2kNXAWBuKmBtbVQlvs1i6DlBDkyM</string>
+    <string name="google_storage_bucket" translatable="false">joruri-seba.appspot.com</string>
+    <string name="project_id" translatable="false">joruri-seba</string>
+</resources>

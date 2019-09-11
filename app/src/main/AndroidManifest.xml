@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.coxtunes.joruriseba">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".MySingleton"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashScreen.SplashScreen"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Doctor.Doctor"
+            android:label="@string/title_activity_doctor"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Developer" />
+        <activity
+            android:name=".Fermacy.Fermacy"
+            android:label="@string/title_activity_fermacy"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Cng.Cng"
+            android:label="@string/title_activity_cng"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Gas.Gas"
+            android:label="@string/title_activity_gas"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Electrician.Elec"
+            android:label="@string/title_activity_elec"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Polly_biddut.Polly_biddut"
+            android:label="@string/title_activity_polly_biddut"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Fire_service.Fire_service"
+            android:label="@string/title_activity_fire_service"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Log_in.Log_in"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Log_in.Loged"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".AboutApp"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="153a8a5b2d99a10c8f2e7296650d2eb4988307a5" />
+
+        <activity
+            android:name=".NewsPostUpdateRead.NewsFullView"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".NewsPostUpdateRead.AllNewsView"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".NewsPostUpdateRead.NewsUpdate"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".User_Login_Reg.User_Reg"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".User_Login_Reg.GettingNumber"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".User_Login_Reg.VerifuPhone"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".Log_in.ContactInfoRead"/>
+        <activity android:name=".Log_in.ContactUpdate"></activity>
+    </application>
+
+</manifest>

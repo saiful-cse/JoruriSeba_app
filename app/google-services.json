@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "16703997172",
+    "firebase_url": "https://joruri-seba.firebaseio.com",
+    "project_id": "joruri-seba",
+    "storage_bucket": "joruri-seba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16703997172:android:e4b41e29d419af8a",
+        "android_client_info": {
+          "package_name": "com.coxtunes.joruriseba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16703997172-1qjdpn8pvr5smjk8f5e97v9c6tsti9eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coxtunes.joruriseba",
+            "certificate_hash": "6f9b6e0e8fb96e8dba6c05194379bdde2442846e"
+          }
+        },
+        {
+          "client_id": "16703997172-to9c92pnsnumqsaonsijo51kr464sjh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD39mi2kNXAWBuKmBtbVQlvs1i6DlBDkyM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16703997172-to9c92pnsnumqsaonsijo51kr464sjh5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      },
+      "admob_app_id": "ca-app-pub-3297830572264339~7472060402"
+    }
+  ],
+  "configuration_version": "1"
+}

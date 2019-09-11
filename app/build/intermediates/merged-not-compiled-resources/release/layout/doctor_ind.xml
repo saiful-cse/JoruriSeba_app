@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#d3dee7"
+    android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="#0dbead"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:text="বিসমিল্লাহির রাহমানির রাহিম"/>
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:text="বাংলাদেশের মোট জনসংখ্যার শতকরা ৮৫ ভাগ মানুষ গ্রামাঞ্চলে বসবাস করে। এই গ্রামাঞ্চলে এমবিবিএস পাশ করা ডাক্তার নেই বললেই চলে, ফলে গ্রাম পর্যায়ের বিপুল সংখ্যক জনগোষ্ঠীকে স্বাস্থ্যসেবার জন্যে পল্লী চিকিৎসকদের শরণাপন্ন হতে হয়। পল্লী চিকিৎসক বা গ্রাম ডাক্তারগণ গ্রামীণ স্বাস্থ্যসেবায় তাৎপর্যপূর্ণ ভুমিকা পালন করছেন। যথা-\n\n(১) দেশের প্রত্যন্ত অঞ্চলের মানুষ বাড়ির দোরগোড়ায় অত্যাবশ্যকীয় প্রাথমিক স্বাস্থ্যসেবা পল্লী চিকিৎসকদের মাধ্যমে পেয়ে থাকেন।\n\n(২) গ্রামের দরিদ্র ও প্রান্তিক জনগোষ্ঠীর স্বাস্থ্য বিষয়ক সচেতনতা বাড়াতে পল্লী চিকিৎসকগণ গুরুত্বপূর্ণ ভূমিকা রাখতে পারেন।\n\n(৩) স্বাস্থ্য বিষয়ক বিভিন্ন পরামর্শ প্রদানের মাধ্যমেও পল্লী চিকিৎসকগণ স্বাস্থ্য সেবায় গুরুত্বপূর্ণ অবদান রাখছেন।\n\n(৪) প্রজনন স্বাস্থ্যসেবা, শিশু ও মায়ের স্বাস্থ্যসেবা, টিকাদান, পরিবার পরিকল্পনা, সংক্রমক রোগ প্রতিরোধ, যক্ষ্মা রোগ সনাক্তকরণ ও চিকিৎসা, অপুষ্টিজনিত রোগের চিকিৎসা, সকল প্রকার সাধারণ রোগের চিকিৎসা প্রভৃতি ক্ষেত্রে প্রাথমিক স্বাস্থ্যসেবা প্রদান ও সচেতনতা বৃদ্ধিতে পল্লী চিকিৎসকগণ খুবই গুরুত্বপূর্ণ অবদান রাখছেন।\n\n(৫) আমাদের দেশে এমবিবিএস পাশ করা ভাল ডাক্তারের যথেষ্ট অভাব রয়েছে, সেক্ষেত্রে বিশেষ করে গ্রাম পর্যায়ের চিকিৎসা ব্যবস্থায় পল্লী চিকিৎসকদের প্রয়োজনীয়তা ও গুরুত্ব অনস্বীকার্য।\n\n(৬) দ্রুততম সময়ের মধ্যে তৃণমূল জনগণের কাছে স্বাস্থ্যসেবা পৌঁছাতে পল্লী চিকিৎসকগণ ভূমিকা রাখতে পারে।"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:id="@+id/textView4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ডাক্তারদের সাথে কিভাবে যোগাযোগ করবেন?"
+                    android:background="#0dbead"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#000000"
+                    android:layout_marginTop="10dp"
+                    android:text="আপনার প্রয়োজন অনুযায়ী কাঙ্খিত ডাক্তারের নামের পাশে কল বাটনে ক্লিক করে ডাক্তারের সাথে সরাসরি ফোনে কথা বলতে পারবেন।\n\nবিদ্রঃ বিনা কারনে ফোন করে বিরক্ত করবেন না।\n\n\n"
+                    />
+            </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/doctor_footer">
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>
