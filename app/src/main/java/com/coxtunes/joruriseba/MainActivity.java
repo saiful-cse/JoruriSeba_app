@@ -1,45 +1,34 @@
 package com.coxtunes.joruriseba;
 
-import android.Manifest;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
+
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
+
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
+
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import android.widget.TextView;
 import com.coxtunes.joruriseba.Cng.Cng;
 import com.coxtunes.joruriseba.Doctor.Doctor;
 import com.coxtunes.joruriseba.Electrician.Elec;
@@ -47,51 +36,13 @@ import com.coxtunes.joruriseba.Fermacy.Fermacy;
 import com.coxtunes.joruriseba.Fire_service.Fire_service;
 import com.coxtunes.joruriseba.Gas.Gas;
 import com.coxtunes.joruriseba.Log_in.Log_in;
-import com.coxtunes.joruriseba.NewsPostUpdateRead.News;
-import com.coxtunes.joruriseba.NewsPostUpdateRead.NewsAdapter;
 import com.coxtunes.joruriseba.Polly_biddut.Polly_biddut;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    InterstitialAd mInterstitialAdDoctor,mInterstitialAdFermacy,mInterstitialAdCng,
-    mInterstitialAdGas,mInterstitialAdElec,mInterstitialAdPolly,mInterstitialAdFirs;
-
-    TextView tv_fazar,tv_zohar,tv_asar,tv_magrib,tv_isha,tv_joma;
-
-    SwipeRefreshLayout swipe;
-    Internet internet; //internet "class" call
-
-    LinearLayout aleart_layout1, aleart_layout2, layout3; //layout visible or invisible
-
-    CardView cardDoc, cardFer, cardCn, cardGa, cardElec, cardPoll, cardFirs, cardAboutapp;
-
-    ProgressBar progressBar;
-
-    /*
-        News
-     */
-    RecyclerView recyclerView;
-
-    NewsAdapter newsAdapter;
-    List<News> newsArrayList;
-
-
+    CardView cardWifi, cardTomtom, cardDoc, cardFer, cardCn, cardGa,
+            cardElec, cardPoll, cardFirs, cardAboutapp;
 
     /*
     network connection detector warning.
@@ -104,16 +55,6 @@ public class MainActivity extends AppCompatActivity
     private boolean internetConnected=true;
     //------------------------------------------
 
-    /*
-    Runtime permission
-     */
-    public int[] permissionCheck;
-    public int MY_PERMISSIONS_ACCESS_ALL_PERMISSION;
-
-    public String[] permissions = new String[]
-            {android.Manifest.permission.CALL_PHONE};
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,97 +62,27 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_page_toolbar); //main activity toolbar
         setSupportActionBar(toolbar);
 
-        progressBar = findViewById(R.id.progressBar);
-
-        // Runtime permission check
-        permissionCheck = new int[]
-                {
-                        ContextCompat.checkSelfPermission(this.getApplicationContext(),Manifest.permission.CALL_PHONE)
-                };
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        {
-            requestForPermission();
-
-        }
-
-
-        internet = new Internet(this);
-        aleart_layout1 = (LinearLayout)findViewById(R.id.internet_aleart1);
-        aleart_layout2 = (LinearLayout)findViewById(R.id.internet_aleart2);
-        layout3 = (LinearLayout)findViewById(R.id.namaj_types);
-
-        /*
-            News component initialize
-         */
-        newsArrayList = new ArrayList<>();
-
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        newsAdapter  = new NewsAdapter(MainActivity.this, newsArrayList);
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(newsAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        if(internet.isConnected()){
-            layout3.setVisibility(View.VISIBLE);
-            aleart_layout1.setVisibility(View.GONE);
-            aleart_layout2.setVisibility(View.GONE);
-            newsLoad();
-
-        }else{
-            layout3.setVisibility(View.GONE);
-            aleart_layout1.setVisibility(View.VISIBLE);
-            aleart_layout2.setVisibility(View.VISIBLE);
-        }
-
         coordinatorLayout=(CoordinatorLayout)findViewById(R.id.content_main); //network connection detector warning.
 
-        tv_fazar = (TextView)findViewById(R.id.fazar);
-        tv_zohar = (TextView)findViewById(R.id.johor);
-        tv_asar = (TextView)findViewById(R.id.asor);
-        tv_magrib = (TextView)findViewById(R.id.magrib);
-        tv_isha = (TextView)findViewById(R.id.isha);
-        tv_joma = (TextView)findViewById(R.id.joma);
-
-        //----btn click ad show------
-        mInterstitialAdDoctor = new InterstitialAd(this);
-        mInterstitialAdDoctor.setAdUnitId(getString(R.string.doctor_insts));
-        AdRequest int_adRequestDoctor = new AdRequest.Builder().build();
-        mInterstitialAdDoctor.loadAd(int_adRequestDoctor);
-
-        mInterstitialAdFermacy = new InterstitialAd(this);
-        mInterstitialAdFermacy.setAdUnitId(getString(R.string.fermacy_intst));
-        AdRequest int_adRequestFermacy = new AdRequest.Builder().build();
-        mInterstitialAdFermacy.loadAd(int_adRequestFermacy);
-
-        mInterstitialAdCng = new InterstitialAd(this);
-        mInterstitialAdCng.setAdUnitId(getString(R.string.cng_intst));
-        AdRequest int_adRequestCng = new AdRequest.Builder().build();
-        mInterstitialAdCng.loadAd(int_adRequestCng);
-
-        mInterstitialAdGas = new InterstitialAd(this);
-        mInterstitialAdGas.setAdUnitId(getString(R.string.gas_intst));
-        AdRequest int_adRequestGas = new AdRequest.Builder().build();
-        mInterstitialAdGas.loadAd(int_adRequestGas);
-
-        mInterstitialAdElec = new InterstitialAd(this);
-        mInterstitialAdElec.setAdUnitId(getString(R.string.elec_intst));
-        AdRequest int_adRequestElec = new AdRequest.Builder().build();
-        mInterstitialAdElec.loadAd(int_adRequestElec);
-
-        mInterstitialAdPolly = new InterstitialAd(this);
-        mInterstitialAdPolly.setAdUnitId(getString(R.string.polly_intst));
-        AdRequest int_adRequestPolly = new AdRequest.Builder().build();
-        mInterstitialAdPolly.loadAd(int_adRequestPolly);
-
-        mInterstitialAdFirs = new InterstitialAd(this);
-        mInterstitialAdFirs.setAdUnitId(getString(R.string.fsb_intst));
-        AdRequest int_adRequestFirs = new AdRequest.Builder().build();
-        mInterstitialAdFirs.loadAd(int_adRequestFirs);
-
         //-------card click------------
+
+        cardWifi = findViewById(R.id.cardWifi);
+        cardWifi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Wifi.class);
+                startActivity(intent);
+            }
+        });
+
+        cardTomtom = findViewById(R.id.cardTomtom);
+        cardTomtom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Tomtom.class);
+                startActivity(intent);
+            }
+        });
 
         cardDoc = (CardView) findViewById(R.id.cardDoctor);
         cardDoc.setOnClickListener(new View.OnClickListener() {
@@ -220,9 +91,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, Doctor.class);
                 startActivity(intent);
                 MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-                if (mInterstitialAdDoctor.isLoaded()) {
-                    mInterstitialAdDoctor.show();
-                }
             }
         });
         cardFer = (CardView) findViewById(R.id.cardFermacy);
@@ -232,9 +100,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, Fermacy.class);
                 startActivity(intent);
                 MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-                if (mInterstitialAdFermacy.isLoaded()) {
-                    mInterstitialAdFermacy.show();
-                }
             }
         });
         cardCn = (CardView) findViewById(R.id.cardCng);
@@ -244,9 +109,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, Cng.class);
                 startActivity(intent);
                 MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-                if (mInterstitialAdCng.isLoaded()) {
-                    mInterstitialAdCng.show();
-                }
             }
         });
         cardGa = (CardView) findViewById(R.id.cardGas);
@@ -256,9 +118,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, Gas.class);
                 startActivity(intent);
                 MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-                if (mInterstitialAdGas.isLoaded()) {
-                    mInterstitialAdGas.show();
-                }
             }
         });
         cardElec = (CardView) findViewById(R.id.cardElectrician);
@@ -268,9 +127,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, Elec.class);
                 startActivity(intent);
                 MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-                if (mInterstitialAdElec.isLoaded()) {
-                    mInterstitialAdElec.show();
-                }
             }
         });
         cardPoll = (CardView) findViewById(R.id.cardPolly);
@@ -280,9 +136,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, Polly_biddut.class);
                 startActivity(intent);
                 MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-                if (mInterstitialAdPolly.isLoaded()) {
-                    mInterstitialAdPolly.show();
-                }
             }
         });
         cardFirs = (CardView) findViewById(R.id.cardFirService);
@@ -292,9 +145,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, Fire_service.class);
                 startActivity(intent);
                 MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-                if (mInterstitialAdFirs.isLoaded()) {
-                    mInterstitialAdFirs.show();
-                }
 
             }
         });
@@ -320,106 +170,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.main_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null); //for orginal nav menu icon color
-        //------------------------------------------------------------------------------
-
-        //-----------namaz time show------------
-        DatabaseReference namaz_schedule_reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://joruri-seba.firebaseio.com/Namaz_Schedule");
-        namaz_schedule_reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String fazar = dataSnapshot.child("fazar").getValue(String.class);
-                String zohar = dataSnapshot.child("zohar").getValue(String.class);
-                String asar = dataSnapshot.child("asar").getValue(String.class);
-                String magrib = dataSnapshot.child("magrib").getValue(String.class);
-                String isha = dataSnapshot.child("isha").getValue(String.class);
-                String joma = dataSnapshot.child("joma").getValue(String.class);
-
-                tv_fazar.setText(fazar);
-                tv_zohar.setText(zohar);
-                tv_asar.setText(asar);
-                tv_magrib.setText(magrib);
-                tv_isha.setText(isha);
-                tv_joma.setText(joma);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplication(),"Server Error!",Toast.LENGTH_SHORT).show();
-            }
-        });
-        //---------------------------------------------------------------
-
-        swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-                if(internet.isConnected()){
-                    newsLoad();
-                }else{
-                    Toast.makeText(getApplication(),"Check internet connection",Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-    }
-
-
-    /*
-        News load from server using volley
-     */
-    public void newsLoad(){
-
-        progressBar.setVisibility(View.VISIBLE);
-        String serverUrl = getString(R.string.server_url)+"News_read.php";
-
-        final StringRequest stringRequest = new StringRequest(Request.Method.POST, serverUrl, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                try {
-                    newsArrayList.clear();
-                    JSONArray jsonArray= new JSONArray(response);
-
-                    for (int i=0;i<jsonArray.length();i++){
-
-                        News news = new News();
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                        news.setNewsPhoto(jsonObject.getString("photo"));
-                        news.setNewsTitle(jsonObject.getString("news_title"));
-                        news.setNewsTime(jsonObject.getString("date_time"));
-                        news.setNewsDesc(jsonObject.getString("news_desc"));
-                        news.setNewsEditor(jsonObject.getString("editor"));
-
-                        newsArrayList.add(news);
-                        progressBar.setVisibility(View.GONE);
-                        swipe.setRefreshing(false);
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                newsAdapter.notifyDataSetChanged();
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressBar.setVisibility(View.GONE);
-            }
-        });
-        MySingleton.getInstance().addToRequestQueue(stringRequest);
-    }
-
-
-    // if SDK > 23
-    public void requestForPermission() {
-
-        if (permissionCheck[0] != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, permissions, MY_PERMISSIONS_ACCESS_ALL_PERMISSION);
-        }
+        //-----------------------------------------------------------------------------
     }
 
     //------When click back, then navigation Drawer close-----
@@ -463,12 +214,6 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
-        if (id == R.id.action_developer) {
-            Intent intent = new Intent(MainActivity.this, Developer.class);
-            startActivity(intent);
-            MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-            return true;
-        }
         if (id == R.id.action_login) {
             Intent intent = new Intent(MainActivity.this, Log_in.class);
             startActivity(intent);
@@ -487,7 +232,17 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_doctor) {
+        if (id == R.id.nav_wifi) {
+            Intent intent = new Intent(MainActivity.this, Doctor.class);
+            startActivity(intent);
+
+
+        } else if (id == R.id.nav_tomtom) {
+            Intent intent = new Intent(MainActivity.this, Tomtom.class);
+            startActivity(intent);
+
+
+        } else if (id == R.id.nav_doctor) {
             Intent intent = new Intent(MainActivity.this, Doctor.class);
             startActivity(intent);
             MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
@@ -528,19 +283,14 @@ public class MainActivity extends AppCompatActivity
             MainActivity.this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
 
 
-        } else if (id == R.id.nav_developer) {
-            Intent intent = new Intent(MainActivity.this, Developer.class);
-            startActivity(intent);
-            MainActivity.this.overridePendingTransition(R.anim.right_in,R.anim.left_out);
-
-        }else if (id == R.id.nav_login) {
+        } else if (id == R.id.nav_login) {
             Intent intent = new Intent(MainActivity.this, Log_in.class);
             startActivity(intent);
             MainActivity.this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.main_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

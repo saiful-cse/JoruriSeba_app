@@ -5,10 +5,10 @@
     android:id="@+id/activity_splash_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d3dee7"
+    android:background="@color/activityBackground"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context="com.coxtunes.joruriseba.SplashScreen.SplashScreen">
+    tools:context="com.coxtunes.joruriseba.SplashScreen">
 
 
 
@@ -40,18 +40,9 @@
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar2"
+            android:id="@+id/progressSplash"
             android:layout_gravity="bottom"
             android:layout_marginTop="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="version: 2.1"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:textSize="10sp"/>
-
     </LinearLayout>
 
 </LinearLayout>

@@ -19,8 +19,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.coxtunes.joruriseba.AboutApp;
-import com.coxtunes.joruriseba.Developer;
-import com.coxtunes.joruriseba.MainActivity;
+
 import com.coxtunes.joruriseba.R;
 
 public class Doctor extends AppCompatActivity {
@@ -101,12 +100,6 @@ public class Doctor extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_developer) {
-            Intent intent = new Intent(Doctor.this, Developer.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in,R.anim.left_out);
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -170,11 +163,12 @@ public class Doctor extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    Doctor_ind doctor_ind = new Doctor_ind();
-                    return doctor_ind;
-                case 1:
                     Doctor_call doctor_call = new Doctor_call();
                     return doctor_call;
+                case 1:
+                    Doctor_ind doctor_ind = new Doctor_ind();
+                    return doctor_ind;
+
             }
             return null;
         }
@@ -189,9 +183,9 @@ public class Doctor extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "নির্দেশনা";
-                case 1:
                     return "যোগাযোগ";
+                case 1:
+                    return "নির্দেশনা";
             }
             return null;
         }

@@ -1,24 +1,34 @@
-package com.coxtunes.joruriseba.SplashScreen;
+package com.coxtunes.joruriseba;
 
-import android.app.Service;
+
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Handler;
+
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.coxtunes.joruriseba.Internet;
-import com.coxtunes.joruriseba.MainActivity;
-import com.coxtunes.joruriseba.R;
-import com.coxtunes.joruriseba.User_Login_Reg.GettingNumber;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.coxtunes.joruriseba.UserRegistration.RegStep1;
 import com.crashlytics.android.Crashlytics;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -26,8 +36,10 @@ public class SplashScreen extends AppCompatActivity {
 
 
     TextView t1;
-    SharedPreferences sp;
-    Internet internet;
+
+    SharedPreferences pref;
+    String email;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,72 +48,96 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         getSupportActionBar().hide(); //hide action bar
 
-        internet = new Internet(this);
 
-        Intent intent = new Intent(SplashScreen.this,MainActivity.class);
-        startActivity(intent);
+        t1 = findViewById(R.id.headline);
+        Typeface tp1 = Typeface.createFromAsset(getAssets(), "soliman_lipi.ttf");
+        t1.setTypeface(tp1);
 
-//        if (!internet.isConnected()){
-//            connError();
-//        }else{
-//            sp = getSharedPreferences("registration",MODE_PRIVATE);
-//            t1 = findViewById(R.id.headline);
-//            Typeface tp1 = Typeface.createFromAsset(getAssets(), "soliman_lipi.ttf");
-//            t1.setTypeface(tp1);
-//            new Handler().postDelayed(new Runnable() {
-//                //showing splash screen with a timer.
-//                @Override
-//                public void run() {
-//                    if(sp.getBoolean("registered",false)){
-//                        // start main activity after time.
-//                        Intent intent = new Intent(SplashScreen.this,MainActivity.class);
-//                        startActivity(intent);
-//                        //close activity
-//                        finish();
-//                        overridePendingTransition(R.anim.right_in,R.anim.left_out);
-//                    }else{
-//                        Intent intent = new Intent(SplashScreen.this,GettingNumber.class);
-//                        startActivity(intent);
-//                    }
-//
-//                }
-//            },1000);
-//        }
+        pref = getApplicationContext().getSharedPreferences("reg", MODE_PRIVATE);
+        email = pref.getString("email", null);
+        progressBar = findViewById(R.id.progressSplash);
 
+        if (isNetworkConnected() ){
+            //calling a function for Load post
+            user_check();
+
+        }else{
+            aleartDialog("এই অ্যাপটিতে ইন্টারনেট কানেকশন ছাড়া প্রবেশ করা যাবেনা। দয়া করে ইন্টারনেট কানেকশন অন করুন");
+            //Snackbar.make(findViewById(android.R.id.content),"Please!! Check internet connection.",Snackbar.LENGTH_LONG).show();
+
+        }
     }
 
 
-    public boolean isConnected(){
-        ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Service.CONNECTIVITY_SERVICE);
+    //get profile info
+    public void user_check(){
 
-        if(connectivity != null){
-            NetworkInfo info = connectivity.getActiveNetworkInfo();
+        progressBar.setVisibility(View.VISIBLE);
+        //String url = getString(R.string.base_url)+"user/"+email;
+        String url = "https://creativesaif.com/api/joruri_seba_api/api/user/saif@gmail.com";
 
-            if(info != null){
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
 
-                if(info.getState() == NetworkInfo.State.CONNECTED){
-                    return true;
+                progressBar.setVisibility(View.GONE);
+                try {
+
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    String message = jsonObject.getString("message");
+                    if (message.equals("200")){
+                        startActivity(new Intent(SplashScreen.this, MainActivity.class));
+
+                    }else if (message.equals("404")){
+
+                        startActivity(new Intent(SplashScreen.this, RegStep1.class));
+                    }
+
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SplashScreen.this, e.getMessage(),Toast.LENGTH_LONG).show();
                 }
 
             }
-        }
-        return false;
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+                progressBar.setVisibility(View.GONE);
+                //aleartDialog("Something went wrong!! Try again later.");
+                aleartDialog(volleyError.toString());
+                //Toast.makeText(SplashScreen.this, volleyError.toString(),Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        MySingleton.getInstance().addToRequestQueue(request);
     }
 
-    public void connError(){
+
+    public void aleartDialog(String message){
         AlertDialog.Builder aleart1 = new AlertDialog.Builder(this);
         aleart1.setCancelable(false);
         aleart1.setTitle("দুঃখিত!!");
-        aleart1.setMessage("এই অ্যাপটিতে ইন্টারনেট কানেকশন ছাড়া প্রবেশ করা যাবেনা। দয়া করে ইন্টারনেট কানেকশন অন করুন");
+        aleart1.setMessage(message);
         aleart1.setIcon(R.drawable.sorry_icon);
 
-        aleart1.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+        aleart1.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 finish();
             }
         });
+
         AlertDialog dlg = aleart1.create();
         dlg.show();
+    }
+
+
+    //Internet connection check
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null;
     }
 }

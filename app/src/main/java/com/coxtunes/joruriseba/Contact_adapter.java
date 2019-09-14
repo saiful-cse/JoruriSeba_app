@@ -50,12 +50,12 @@ public class Contact_adapter extends RecyclerView.Adapter<Contact_adapter.EachCo
                 aleart1.setCancelable(true);
                 aleart1.setMessage("আপনি কি "+contacts.getName()+" কে কল করতে চান?");
                 aleart1.setIcon(R.drawable.alert);
-
-                aleart1.setPositiveButton("হা", new DialogInterface.OnClickListener() {
+                aleart1.setPositiveButton("হ্যা", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.fromParts("tel", "+88"+contacts.getPhone(), null));
-                        ctx.startActivity(intent);
+                        Intent callIntent = new Intent(Intent.ACTION_VIEW);
+                        callIntent.setData(Uri.parse("tel:"+contacts.getPhone()));
+                        ctx.startActivity(callIntent);
                     }
                 });
 

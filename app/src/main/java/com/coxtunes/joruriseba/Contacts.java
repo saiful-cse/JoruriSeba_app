@@ -1,17 +1,15 @@
 package com.coxtunes.joruriseba;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class Contacts {
-    private String id,name, area_chamber_shop, phone, table;
+    private String id,name, area_chamber_shop, phone, service_name;
 
-    public Contacts(String id, String name, String area_chamber_shop, String phone, String table) {
+
+    public Contacts(String id, String name, String area_chamber_shop, String phone, String service_name) {
         this.id = id;
         this.name = name;
         this.area_chamber_shop = area_chamber_shop;
         this.phone = phone;
-        this.table = table;
+        this.service_name = service_name;
     }
 
     public Contacts() {
@@ -50,12 +48,14 @@ public class Contacts {
         this.phone = phone;
     }
 
-    public String getTable() {
-        return table;
+    public String getService_name() {
+        return service_name;
     }
 
-    public void setTable(String table) {
-        this.table = table;
+    public void setService_name(String service_name) {
+        this.service_name = service_name;
     }
+
+
 
 }

@@ -15,8 +15,6 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.coxtunes.joruriseba.AboutApp;
-import com.coxtunes.joruriseba.Developer;
-import com.coxtunes.joruriseba.Doctor.Doctor;
 import com.coxtunes.joruriseba.R;
 
 public class Polly_biddut extends AppCompatActivity {
@@ -96,13 +94,6 @@ public class Polly_biddut extends AppCompatActivity {
             overridePendingTransition(R.anim.right_in,R.anim.left_out);
             return true;
         }
-
-        if (id == R.id.action_developer) {
-            Intent intent = new Intent(Polly_biddut.this, Developer.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in,R.anim.left_out);
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -157,11 +148,13 @@ public class Polly_biddut extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    Polly_biddut_ind polly_biddut_ind = new Polly_biddut_ind();
-                    return polly_biddut_ind;
-                case 1:
                     Pollly_biddut_call polly_biddut_call = new Pollly_biddut_call();
                     return polly_biddut_call;
+
+                case 1:
+                    Polly_biddut_ind polly_biddut_ind = new Polly_biddut_ind();
+                    return polly_biddut_ind;
+
             }
             return null;
         }
@@ -176,9 +169,11 @@ public class Polly_biddut extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "নির্দেশনা";
-                case 1:
                     return "যোগাযোগ";
+
+                case 1:
+                    return "নির্দেশনা";
+
             }
             return null;
         }

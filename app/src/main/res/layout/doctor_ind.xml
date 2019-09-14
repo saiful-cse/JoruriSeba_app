@@ -4,29 +4,15 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#d3dee7"
+    android:background="@color/activityBackground"
     android:layout_height="match_parent">
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:background="#0dbead"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:textColor="#fff"
-                android:text="বিসমিল্লাহির রাহমানির রাহিম"/>
 
             <ScrollView
                 android:layout_width="fill_parent"
@@ -52,10 +38,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ডাক্তারদের সাথে কিভাবে যোগাযোগ করবেন?"
-                    android:background="#0dbead"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    android:textColor="#fff"
                     android:layout_marginTop="10dp"
                     />
 
@@ -71,14 +56,5 @@
             </ScrollView>
 
         </LinearLayout>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/doctor_footer">
-    </com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

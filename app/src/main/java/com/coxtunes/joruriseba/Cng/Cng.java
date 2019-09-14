@@ -13,18 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
+
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.TextView;
+
 
 import com.coxtunes.joruriseba.AboutApp;
-import com.coxtunes.joruriseba.Developer;
-import com.coxtunes.joruriseba.Doctor.Doctor;
-import com.coxtunes.joruriseba.Fermacy.Fermacy;
-import com.coxtunes.joruriseba.MainActivity;
 import com.coxtunes.joruriseba.R;
 
 public class Cng extends AppCompatActivity {
@@ -106,13 +99,6 @@ public class Cng extends AppCompatActivity {
             overridePendingTransition(R.anim.right_in,R.anim.left_out);
             return true;
         }
-
-        if (id == R.id.action_developer) {
-            Intent intent = new Intent(Cng.this, Developer.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in,R.anim.left_out);
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -167,11 +153,11 @@ public class Cng extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    Cng_ind cng_ind = new Cng_ind();
-                    return cng_ind;
-                case 1:
                     Cng_call cng_call = new Cng_call();
                     return cng_call;
+                case 1:
+                    Cng_ind cng_ind = new Cng_ind();
+                    return cng_ind;
             }
             return null;
         }
@@ -186,9 +172,10 @@ public class Cng extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "নির্দেশনা";
-                case 1:
                     return "যোগাযোগ";
+                case 1:
+                    return "নির্দেশনা";
+
             }
             return null;
         }

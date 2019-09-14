@@ -1,76 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_about_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="5dp"
-    android:paddingLeft="5dp"
-    android:background="#d3dee7"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:background="@color/activityBackground"
     tools:context="com.coxtunes.joruriseba.AboutApp">
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="50dp"
-        android:orientation="vertical">
-
-
-        <TextView
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:text="ভুমিকা"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="আসসালামু আলাইকুম, হে খরুলিয়াবাসী আপনারা সবাই ভাল আছেন। আমাদের দৈন্দিন জীবনে আমরা বিভিন্ন সমস্যায় সম্মুখীন হয়ে থাকি। যেমনঃ হঠাৎ অসুস্থ হলে ডাক্তারের পরামর্শের প্রয়োজন, হাসপাতালে যেতে হলে সিএনজি গাড়ির প্রয়োজন, ঔষুদের জন্য ফার্মেসির প্রয়োজন, রান্না কাজে ব্যবহারের জন্য গ্যাস সিলিন্ডার প্রয়োজন, অগ্নি সংক্রান্ত দুর্ঘটনার জন্য ফায়ার সার্ভিসের প্রয়োজন ও বিদ্যুৎ সংক্রান্ত অভিযোগের জন্য বিদ্যুৎ অফিসের সাথে যোগাযোগের প্রয়োজন। এই সমস্ত সমস্যাগুলির সমাধান হাতের মুঠোর আনতে ২০১৭ সালের ফেব্রুয়ারি মাস থেকে “স্মার্ট এন্ড্র্যয়েড সফটওয়্যার” এর কাজ শুরু করেছিলাম। দীর্ঘ ছয়মাস যাবৎ কাজ করে মানুষের বোদ্গম্য সুন্দর একটা “মোবাইল সফটওয়ার” দাড় করাতে পেরে আমি অনেক আনন্দিত। এই সফটওয়্যারটির জন্য এলাকার কিছু বড়ভাইয়েরা সুন্দর আইডিয়া দিয়ে অনুপ্রাণিত করেছিল আমি তাদের প্রতি কৃতজ্ঞ জানাই। এই সফটওয়ারটি বানানোর প্রধান উদ্দেশ্য হচ্ছে, নিজের অর্জিত জ্ঞানগুলি সবার মাঝে বিলিয়ে দেওয়া। \n\nবিঃদ্রঃ এই সফটওয়ারটিতে কোন ধরনের ভুল-ভ্রান্তি আপনার চোখে পড়ে থাকলে অবশ্যই কমেন্টে জানাবেন এবং ক্ষমার দৃষ্টিতে থাকাবেন"
-            android:textSize="17sp"
-            android:textColor="#000000"
-            />
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:background="#ffffff"
-            android:textStyle="bold"
-            android:id="@+id/comment"
-            android:text="কমেন্ট করুন"/>
+            <android.support.v7.widget.CardView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="\nসফটওয়্যার নির্মাতা\nসাইফুল\nখরুলিয়া মাষ্টার পাড়া\n০১৮৩৫ ৫৫৯১৬১\n"
-            android:textSize="17sp"
-            android:textColor="#000000"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="version: 2.1"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:textSize="10sp"/>
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="15sp"
+                        android:text="Developed and Maintaining By"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:text="SAIF ULLAH (SAIFUL)"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="15sp"
+                        android:text="B.Sc in Computer Science and Engineering"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/dev_call"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_phone_black_24dp"
+                            />
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical"
+                            android:text="+88 01400 559161"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_email_black_24dp"
+                            />
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical"
+                            android:text="saiful.cbiu.cse@gmail.com"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terms and Conditions"
+                android:id="@+id/terms_condition"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary" />
+
+            <android.support.v7.widget.CardView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp">
+
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="এই অ্যাপটিতে কোন ধরনের মোবাইল নাম্বার সংযুক্ত, আপডেট ও ডিলিট করার জন্য যোগাযোগ করুন। \n\nতাসপি ডিপার্টমেন্টাল ষ্টোর, পাতলী রোড খরুলিয়া কক্সবাজার সদর। \nপ্রোপাইটরঃ জিয়াবুল হক" />
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/versionName"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Copyright &#169; 2019 &quot;Saif Ullah&quot;. All rights reserved\nCox's Bazar | Bangladesh" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
     </ScrollView>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/doctor_footer">
-    </com.google.android.gms.ads.AdView>
-
-</RelativeLayout>
+</LinearLayout>

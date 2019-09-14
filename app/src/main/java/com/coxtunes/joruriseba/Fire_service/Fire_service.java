@@ -15,10 +15,6 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.coxtunes.joruriseba.AboutApp;
-import com.coxtunes.joruriseba.Cng.Cng_call;
-import com.coxtunes.joruriseba.Cng.Cng_ind;
-import com.coxtunes.joruriseba.Developer;
-import com.coxtunes.joruriseba.Doctor.Doctor;
 import com.coxtunes.joruriseba.R;
 
 public class Fire_service extends AppCompatActivity {
@@ -99,12 +95,6 @@ public class Fire_service extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_developer) {
-            Intent intent = new Intent(Fire_service.this, Developer.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in,R.anim.left_out);
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -159,11 +149,13 @@ public class Fire_service extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    Fire_service_ind fire_service_ind = new Fire_service_ind();
-                    return fire_service_ind;
-                case 1:
                     Fire_service_call fire_service_call = new Fire_service_call();
                     return fire_service_call;
+
+                case 1:
+                    Fire_service_ind fire_service_ind = new Fire_service_ind();
+                    return fire_service_ind;
+
             }
             return null;
         }
@@ -178,9 +170,10 @@ public class Fire_service extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "নির্দেশনা";
-                case 1:
                     return "যোগাযোগ";
+
+                case 1:
+                    return "নির্দেশনা";
             }
             return null;
         }

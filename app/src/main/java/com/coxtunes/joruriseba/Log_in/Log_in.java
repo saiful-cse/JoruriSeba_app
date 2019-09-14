@@ -1,9 +1,6 @@
 package com.coxtunes.joruriseba.Log_in;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.VoiceInteractor;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -29,51 +27,47 @@ import com.android.volley.toolbox.Volley;
 import com.coxtunes.joruriseba.Internet;
 import com.coxtunes.joruriseba.MainActivity;
 import com.coxtunes.joruriseba.MySingleton;
+import com.coxtunes.joruriseba.ProgressDialog;
 import com.coxtunes.joruriseba.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.Map;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
 
 public class Log_in extends AppCompatActivity {
 
     Button login_button;
-    EditText email_input,password_input;
+    EditText pin_input;
 
-    String email,pass;
+    String pin;
 
     Internet internet;
 
-    ProgressBar progressBar;
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        progressDialog = new ProgressDialog(this);
         internet = new Internet(this);
-        login_button = (Button)findViewById(R.id.login);
-
-        email_input = (EditText)findViewById(R.id.input_email);
-        password_input = (EditText)findViewById(R.id.input_pass);
-
-        progressBar = findViewById(R.id.progressBar);
+        login_button = findViewById(R.id.btnLogin);
+        pin_input = findViewById(R.id.edPassword);
 
         //-------------Login buttton click----------
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = email_input.getText().toString();
-                pass = password_input.getText().toString();
+
+                pin = pin_input.getText().toString();
 
                 if (!internet.isConnected()){
-                    Toast.makeText(getApplicationContext(), "Please check interet connection.", Toast.LENGTH_SHORT).show();
-                }else if(email.equals("") || pass.equals("")){
-                    Toast.makeText(getApplicationContext(), "Enter email and password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please check internet connection.", Toast.LENGTH_SHORT).show();
+                }else if(pin.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Enter pin", Toast.LENGTH_SHORT).show();
                 }else{
                     admin_login();
                 }
@@ -87,65 +81,42 @@ public class Log_in extends AppCompatActivity {
 
 
     public void admin_login() {
-        progressBar.setVisibility(View.VISIBLE);
-        String url = getString(R.string.server_url)+"Login.php";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        progressDialog.showDialog();
+        String url = getString(R.string.base_url)+"admin/"+pin;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response.equalsIgnoreCase("ok")){
-                    Toast.makeText(Log_in.this,"Login Successfully",Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                    finish();
-                    Intent intent = new Intent(Log_in.this, Loged.class);
-                    startActivity(intent);
-                }else{
-                    progressBar.setVisibility(View.GONE);
-                    Toast.makeText(Log_in.this,response,Toast.LENGTH_SHORT).show();
+
+                progressDialog.hideDialog();
+                try{
+
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    String message = jsonObject.getString("message");
+                    if (message.equals("200")){
+                        startActivity(new Intent(Log_in.this, Loged.class));
+                        Toast.makeText(Log_in.this, "OK",Toast.LENGTH_SHORT).show();
+
+                    }else{
+
+                        Toast.makeText(Log_in.this, message,Toast.LENGTH_LONG).show();
+
+                    }
+
+                }catch (JSONException e){
+                    e.printStackTrace();
                 }
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                progressBar.setVisibility(View.GONE);
-                //Toast.makeText(Log_in.this, (CharSequence) error,Toast.LENGTH_SHORT).show();
+                progressDialog.hideDialog();
+                Toast.makeText(Log_in.this, (CharSequence) error,Toast.LENGTH_SHORT).show();
             }
-        }) {
-            @Override
-            protected Map<String, String> getParams() {
-                //Creating Map String Params.
-                Map<String, String> params = new HashMap<String, String>();
-
-                params.put("email", email);
-                params.put("password", pass);
-                return params;
-            }
-        };
+        });
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 8, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance().addToRequestQueue(stringRequest);
-    }
-
-
-    @Override
-    public void onBackPressed() {
-
-        super.onBackPressed();
-        finish();
-        overridePendingTransition(R.anim.right_out,R.anim.left_in);
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                overridePendingTransition(R.anim.right_out,R.anim.left_in);
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return true;
     }
 }

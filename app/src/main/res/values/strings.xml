@@ -1,6 +1,7 @@
 <resources>
 
-    <string name="server_url">http://creativesaif.com/joruri_seba/</string>
+    <string name="base_url">http://creativesaif.com/api/joruri_seba_api/api/</string>
+    <string name="server_url">http://localhost:8000/api/</string>
 
     <string name="app_name">জরুরী সেবা</string>
 
@@ -20,6 +21,10 @@
     <string name="nameerror">সঠিক নাম দিন</string>
     <string name="mobileerror">সঠিক মোবাইল নং দিন</string>
 
+    <string name="wifi_content">ইন্টারনেট!!! বহুল পরিচিত একটি নাম। যা আমাদের দৈনন্দিন কাজের সাথে মিশে গেছে বললেই চলে। অফিস, আদালত, স্কুল, কলেজ, মাদ্রাসা, বাসা-বাড়ি এমন কোন জায়গা নেই যেখানে এর ব্যবহার নেই। আমরা আপনার বাসা, অফিস বা ব্যবসায়ীক প্রতিষ্ঠানের জন্য নিরবিচ্ছিন্ন ও স্বল্প খরচে ইন্টারনেট সেবা প্রদান করছি। \n \nএছাড়াও ব্যাংক-বীমা প্রতিষ্ঠানের জন্য আলাদা ইন্টারনেট সার্ভিস রয়েছে। আমাদের ইন্টারনেটের সাথে থাকুন আমরা আপনাকে সর্বোচ্ছ ভাল ইন্টারনেট সার্ভিস দেওয়ার চেষ্টা করব। ইনশা আল্লাহ। \nআমাদের কানেকশনে শুধু ইন্টারনেট পাবেন তাই না, অফিসিয়াল মোবাইল এপলিকেশনের মাধ্যমে যা যা পাবেন। \n \n
+>> লাইভ টিভি সিরিজ \n >> নতুন মোভি সিরিজ\n >> প্রয়োজনীয় কম্পিউটার সফটওয়্যার \n >> মোবাইল ও কম্পিউটার গেইমস \n >> স্মার্টফোন বেইজড প্রোপাইল ও পেমেন্ট স্টেটমেন্ট।
+</string>
+
     <string-array name="area">
         <item>---</item>
         <item>মাস্টার পাড়া</item>
@@ -35,7 +40,8 @@
     </string-array>
 
     <string-array name="service">
-        <item>---</item>
+        <item>Select category</item>
+        <item>tomtom</item>
         <item>cng</item>
         <item>doctor</item>
         <item>elec</item>
@@ -84,6 +90,8 @@
 
     <string name="fsb_gogagog_footer1">ca-app-pub-3297830572264339/9021015609</string>
     <string name="gas_gogagog_footer1">ca-app-pub-3297830572264339/6207150008</string>
+    <string name="title_activity_admin_read_contacts1">AdminReadContacts1</string>
+    <string name="title_activity_admin_fetch_all_contacts">AdminFetchAllContacts</string>
 
 
 </resources>

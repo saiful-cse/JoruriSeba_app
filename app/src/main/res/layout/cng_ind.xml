@@ -4,7 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#d3dee7"
+    android:background="@color/activityBackground"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -12,18 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:background="#0dbead"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="#fff"
-            android:text="বিসমিল্লাহির রাহমানির রাহিম"/>
 
         <ScrollView
             android:layout_width="fill_parent"
@@ -40,6 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="13dp"
+                    android:textAlignment="textStart"
                     android:text="আমাদের দৈন্দিন জীবনে সি এন জি/অটোরিক্সার প্রয়োজনীয়তা অনেক বেশী। যেটা ছাডা আমাদের জীবনযাপন করা দুর্বিষহ। এমন কি আমাদের যাতায়াতের বড় সমস্যাগুলি ছোট্ট যানটি দ্বারা সমাধান হয়। কখনো কখনো আমাদের বিজি লাইফকে ইজি করে দেই। সি এন জি/অটোরিক্সার ড্রাভারদের কাছ থেকে আমরা যে সব সার্ভিস পেতে পারি...\n১। রাতে যে কোন প্রয়োজনে তাদের সাথে যোগাযোগ করতে পারি।\n২। অসুস্থ অবস্থায় তাদের মাধ্যমে হাসপাতালে যেতে পারি।"
                     android:textSize="17sp"
                     android:textColor="#000000"
@@ -48,10 +38,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ড্রাইভারদের সাথে কিভাবে যোগাযোগ করবেন?"
-                    android:background="#0dbead"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    android:textColor="#fff"
+                    android:textColor="@color/colorPrimary"
                     android:layout_marginTop="10dp"
                     />
 
@@ -61,6 +50,7 @@
                     android:textSize="17sp"
                     android:textColor="#000000"
                     android:layout_marginTop="10dp"
+                    android:textAlignment="textStart"
                     android:text="আপনার প্রয়োজন অনুযায়ী কাঙ্খিত ড্রাইভারের নামের পাশে কল বাটনে ক্লিক করে ড্রাইভারের সাথে সরাসরি ফোনে কথা বলতে পারবেন। (পরিচয় দিতে ভুলবেননা)\n\nবি.দ্রঃ বিনা কারনে ফোন করে বিরক্ত করবেন না।\n\n\n"
                     />
             </LinearLayout>
@@ -68,13 +58,5 @@
 
     </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/cng_footer">
-    </com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

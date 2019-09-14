@@ -15,8 +15,6 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.coxtunes.joruriseba.AboutApp;
-import com.coxtunes.joruriseba.Developer;
-import com.coxtunes.joruriseba.Doctor.Doctor;
 import com.coxtunes.joruriseba.R;
 
 public class Gas extends AppCompatActivity {
@@ -97,12 +95,6 @@ public class Gas extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_developer) {
-            Intent intent = new Intent(Gas.this, Developer.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in,R.anim.left_out);
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -165,11 +157,12 @@ public class Gas extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    Gas_ind gas_ind = new Gas_ind();
-                    return gas_ind;
-                case 1:
                     Gas_call gas_call = new Gas_call();
                     return gas_call;
+                case 1:
+                    Gas_ind gas_ind = new Gas_ind();
+                    return gas_ind;
+
             }
             return null;
         }
@@ -184,9 +177,10 @@ public class Gas extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "নির্দেশনা";
-                case 1:
                     return "যোগাযোগ";
+
+                case 1:
+                    return "নির্দেশনা";
             }
             return null;
         }

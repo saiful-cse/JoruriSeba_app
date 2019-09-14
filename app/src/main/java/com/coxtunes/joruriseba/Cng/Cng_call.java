@@ -1,6 +1,7 @@
 package com.coxtunes.joruriseba.Cng;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,6 +43,9 @@ public class Cng_call extends Fragment{
     Internet internet;
     SwipeRefreshLayout swipe;
     TextView textView;
+    String next_page = "";
+    boolean isLoading = true;
+    ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +62,8 @@ public class Cng_call extends Fragment{
         internet = new Internet(getContext());
 
         textView = rootView.findViewById(R.id.warning);
+
+        progressBar = rootView.findViewById(R.id.progressBar);
 
         swipe = rootView.findViewById(R.id.swipe_refresh_layout);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -81,6 +87,33 @@ public class Cng_call extends Fragment{
             textView.setVisibility(View.VISIBLE);
         }
 
+        // here add a recyclerView listener, to listen to scrolling,
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            //this is the ONLY method that we need, ignore the rest
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                if (dy > 0) {
+                    // Recycle view scrolling downwards...
+                    // this if statement detects when user reaches the end of recyclerView, this is only time we should load more
+                    if (!recyclerView.canScrollVertically(RecyclerView.FOCUS_DOWN)) {
+                        // remember "!" is the same as "== false"
+                        // here we are now allowed to load more, but we need to be careful
+                        // we must check if itShouldLoadMore variable is true [unlocked]
+                        if (isLoading && !next_page.equals("null")) {
+                            more_contactLoad(next_page);
+
+                        }else if(next_page.equals("null")){
+                            Toast.makeText(getContext(),"No more contact",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                }
+            }
+        });
+
         return rootView;
     }
 
@@ -89,27 +122,35 @@ public class Cng_call extends Fragment{
         contact load from server using volley
      */
     public void contactLoad(){
-        String serverUrl = getString(R.string.server_url)+"contacts/read.php?table=cng";
-        final StringRequest stringRequest = new StringRequest(Request.Method.GET, serverUrl, new Response.Listener<String>() {
+        isLoading = false;
+        String url = getString(R.string.base_url)+"contacts/cng";
+        swipe.setRefreshing(true);
+        final StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("serverRsp",response);
                 try {
                     contactsArrayList.clear();
-                    JSONArray jsonArray= new JSONArray(response);
+                    //Toast.makeText(getContext(),response,Toast.LENGTH_SHORT).show();
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
 
                     for (int i=0;i<jsonArray.length();i++){
 
                         Contacts contacts = new Contacts();
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
-                        contacts.setName(jsonObject.getString("name"));
-                        contacts.setArea_chamber_shop(jsonObject.getString("area"));
-                        contacts.setPhone(jsonObject.getString("phone"));
+                        contacts.setName(jsonObject1.getString("name"));
+                        contacts.setArea_chamber_shop(jsonObject1.getString("area"));
+                        contacts.setPhone(jsonObject1.getString("phone"));
 
                         contactsArrayList.add(contacts);
-                        swipe.setRefreshing(false);
                     }
+                    JSONObject jsonObject2 = jsonObject.getJSONObject("links");
+                    next_page = jsonObject2.getString("next");
+                    swipe.setRefreshing(false);
+                    isLoading = true;
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -120,7 +161,57 @@ public class Cng_call extends Fragment{
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("serverRsp",error.toString());
+                swipe.setRefreshing(false);
+                Toast.makeText(getContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                isLoading = true;
+            }
+        });
+        MySingleton.getInstance().addToRequestQueue(stringRequest);
+    }
+
+    public void more_contactLoad(String url){
+        isLoading = false;
+        progressBar.setVisibility(View.VISIBLE);
+        final StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    //Toast.makeText(getContext(),response,Toast.LENGTH_SHORT).show();
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+
+                    for (int i=0;i<jsonArray.length();i++){
+
+                        Contacts contacts = new Contacts();
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+                        contacts.setName(jsonObject1.getString("name"));
+                        contacts.setArea_chamber_shop(jsonObject1.getString("area"));
+                        contacts.setPhone(jsonObject1.getString("phone"));
+
+                        contactsArrayList.add(contacts);
+                    }
+                    JSONObject jsonObject2 = jsonObject.getJSONObject("links");
+                    next_page = jsonObject2.getString("next");
+                    progressBar.setVisibility(View.GONE);
+                    isLoading = true;
+
+                    //Toast.makeText(getContext(),next_page,Toast.LENGTH_SHORT).show();
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                contact_adapter.notifyDataSetChanged();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(getContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                isLoading = true;
             }
         });
         MySingleton.getInstance().addToRequestQueue(stringRequest);

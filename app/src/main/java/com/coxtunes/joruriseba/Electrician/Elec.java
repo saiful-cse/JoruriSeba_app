@@ -15,8 +15,6 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.coxtunes.joruriseba.AboutApp;
-import com.coxtunes.joruriseba.Developer;
-import com.coxtunes.joruriseba.Doctor.Doctor;
 import com.coxtunes.joruriseba.R;
 
 public class Elec extends AppCompatActivity {
@@ -97,12 +95,6 @@ public class Elec extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_developer) {
-            Intent intent = new Intent(Elec.this, Developer.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in,R.anim.left_out);
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -164,11 +156,13 @@ public class Elec extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    Elec_ind elec_ind = new Elec_ind();
-                    return elec_ind;
-                case 1:
                     Elec_call elec_call = new Elec_call();
                     return elec_call;
+
+                case 1:
+                    Elec_ind elec_ind = new Elec_ind();
+                    return elec_ind;
+
             }
             return null;
         }
@@ -183,9 +177,10 @@ public class Elec extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "নির্দেশনা";
-                case 1:
                     return "যোগাযোগ";
+
+                case 1:
+                    return "নির্দেশনা";
             }
             return null;
         }

@@ -21,8 +21,6 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.coxtunes.joruriseba.AboutApp;
-import com.coxtunes.joruriseba.Developer;
-import com.coxtunes.joruriseba.Doctor.Doctor;
 import com.coxtunes.joruriseba.R;
 
 public class Fermacy extends AppCompatActivity {
@@ -102,13 +100,6 @@ public class Fermacy extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_developer) {
-            Intent intent = new Intent(Fermacy.this, Developer.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in,R.anim.left_out);
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -169,11 +160,13 @@ public class Fermacy extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    Fermacy_ind fermacy_ind = new Fermacy_ind();
-                    return fermacy_ind;
-                case 1:
                     Fermacy_call fermacy_call = new Fermacy_call();
                     return fermacy_call;
+
+                case 1:
+                    Fermacy_ind fermacy_ind = new Fermacy_ind();
+                    return fermacy_ind;
+
             }
             return null;
         }
@@ -188,9 +181,10 @@ public class Fermacy extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "নির্দেশনা";
-                case 1:
                     return "যোগাযোগ";
+
+                case 1:
+                    return "নির্দেশনা";
             }
             return null;
         }

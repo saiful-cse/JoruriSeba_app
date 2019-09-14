@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.coxtunes.joruriseba">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,8 +12,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".SplashScreen.SplashScreen"
+            android:name=".SplashScreen"
             android:noHistory="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,6 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".UserRegistration.RegStep1"
+            />
+        <activity
+            android:name=".UserRegistration.RegStep2"
+            />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -34,7 +42,6 @@
             android:label="@string/title_activity_doctor"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Developer" />
         <activity
             android:name=".Fermacy.Fermacy"
             android:label="@string/title_activity_fermacy"
@@ -67,14 +74,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Log_in.Log_in"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
-            android:name=".Log_in.Loged"
+            android:label="জরুরী সেবা এডমিন লগইন"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".AboutApp"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
@@ -82,25 +88,27 @@
             android:value="153a8a5b2d99a10c8f2e7296650d2eb4988307a5" />
 
         <activity
-            android:name=".NewsPostUpdateRead.NewsFullView"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:name=".Tomtom"
+            android:label="টমটম"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".NewsPostUpdateRead.AllNewsView"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:name=".Wifi"
+            android:label="ওয়াইফাই ইন্টারনেট"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".NewsPostUpdateRead.NewsUpdate"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:name=".Log_in.Loged"
+            android:label="জরুরী সেবা এডমিন প্যানেল" />
         <activity
-            android:name=".User_Login_Reg.User_Reg"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:name=".Log_in.AdminContactsAdd"
+            android:label="ফোন নাম্বার সংযুক্তকরন" />
         <activity
-            android:name=".User_Login_Reg.GettingNumber"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:name=".Log_in.AdminContactsUpdateDelete"
+            android:label="ফোন নাম্বার আপডেট ও ডিলিট"
+            android:parentActivityName=".Log_in.Loged" />
         <activity
-            android:name=".User_Login_Reg.VerifuPhone"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".Log_in.ContactInfoRead"/>
-        <activity android:name=".Log_in.ContactUpdate"></activity>
+            android:name=".Log_in.AdminFetchAllContacts"
+            android:label="ফোন নাম্বার সমুহ"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

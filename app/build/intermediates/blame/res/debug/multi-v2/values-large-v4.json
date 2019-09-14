@@ -4,7 +4,24 @@
             "outputFile": "E:\\Android Project\\Android Apps Develop\\Joruri seba\\version- 2.1\\JoruriSeba-V-2.1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Saiful\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\a28102fa06625fa7e3adea96104b254d\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\Saiful\\.gradle\\caches\\transforms-2\\files-2.1\\fc3a8fa96d3b8679aeba9a9e8cd92066\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,177",
+                        "endColumns": "121,133",
+                        "endOffsets": "172,306"
+                    },
+                    "to": {
+                        "startLines": "11,12",
+                        "startColumns": "4,4",
+                        "startOffsets": "752,874",
+                        "endColumns": "121,133",
+                        "endOffsets": "869,1003"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Saiful\\.gradle\\caches\\transforms-2\\files-2.1\\711cb25a9f3efd808eac410849d7674c\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

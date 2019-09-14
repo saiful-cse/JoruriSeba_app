@@ -24,7 +24,7 @@
             android:shape="rectangle">
 
             <solid
-                android:color="@color/activity_backround" />
+                android:color="@color/activityBackground" />
             <corners
                 android:radius="6dp" />
             <stroke

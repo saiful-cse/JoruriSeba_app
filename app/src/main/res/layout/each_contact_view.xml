@@ -1,63 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cardViewEachContact"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="#e9ecf2">
+        android:layout_height="90dp"
+        app:cardCornerRadius="6dp"
+        android:layout_marginBottom="5dp">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background="@color/colorPrimaryDark" />
+
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal"
-            android:layout_margin="3dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_margin="10dp">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/name"
-                    android:textStyle="bold"
-                    android:textColor="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Saif Ullah"
                     android:textSize="17sp"
-                    android:text="Saif Ullah"/>
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="textStart"/>
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/area_chamber_shop"
-                    android:textSize="15sp"
-                    android:text="Master Para"/>
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/phone"
+                    android:text="Master para"
                     android:textSize="15sp"
-                    android:text="+8801835559161"/>
+                    android:textAlignment="textStart"/>
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+8801835559161"
+                    android:textSize="15sp"
+                    android:textAlignment="textStart"/>
+
             </LinearLayout>
 
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
                 android:id="@+id/phoneIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_call_black_24dp"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ph"
-                />
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="20dp"/>
+
+
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

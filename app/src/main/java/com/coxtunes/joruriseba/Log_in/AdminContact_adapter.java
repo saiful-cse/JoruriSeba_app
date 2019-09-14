@@ -1,9 +1,8 @@
-package com.coxtunes.joruriseba;
+package com.coxtunes.joruriseba.Log_in;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,14 +11,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.coxtunes.joruriseba.Contacts;
+import com.coxtunes.joruriseba.R;
+
 import java.util.List;
 
-public class Contact_adapter extends RecyclerView.Adapter<Contact_adapter.EachContactView>{
+import static android.support.v4.content.ContextCompat.startActivity;
+
+public class AdminContact_adapter extends RecyclerView.Adapter<AdminContact_adapter.EachContactView>{
     Context ctx;
     List<Contacts> contactsList;
 
 
-    public Contact_adapter(Context ctx, List<Contacts> contactsList) {
+    public AdminContact_adapter(Context ctx, List<Contacts> contactsList) {
         this.ctx = ctx;
         this.contactsList = contactsList;
     }
@@ -29,7 +33,7 @@ public class Contact_adapter extends RecyclerView.Adapter<Contact_adapter.EachCo
     @Override
     public EachContactView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(ctx);
-        View view = inflater.inflate(R.layout.each_contact_view,null);
+        View view = inflater.inflate(R.layout.each_contact_admin_view,null);
         return new EachContactView(view,contactsList);
     }
 
@@ -42,32 +46,15 @@ public class Contact_adapter extends RecyclerView.Adapter<Contact_adapter.EachCo
         holder.phone.setText(contacts.getPhone());
 
         holder.imageView.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
-                android.support.v7.app.AlertDialog.Builder aleart1 = new android.support.v7.app.AlertDialog.Builder(ctx);
-                aleart1.setCancelable(true);
-                aleart1.setMessage("আপনি কি "+contacts.getName()+" কে কল করতে চান?");
-                aleart1.setIcon(R.drawable.alert);
-                aleart1.setPositiveButton("হ্যা", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent callIntent = new Intent(Intent.ACTION_VIEW);
-                        callIntent.setData(Uri.parse("tel:"+contacts.getPhone()));
-                        ctx.startActivity(callIntent);
-                    }
-                });
-
-                aleart1.setNegativeButton("না", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                });
-                android.support.v7.app.AlertDialog dlg = aleart1.create();
-                dlg.show();
-
+                Intent intent = new Intent(view.getContext(), AdminContactsUpdateDelete.class);
+                intent.putExtra("id", contacts.getId());
+                intent.putExtra("name", contacts.getName());
+                intent.putExtra("phone", contacts.getPhone());
+                intent.putExtra("area_chamber_shop", contacts.getArea_chamber_shop());
+                intent.putExtra("service_name", contacts.getService_name());
+                ctx.startActivity(intent);
             }
         });
     }
@@ -78,19 +65,21 @@ public class Contact_adapter extends RecyclerView.Adapter<Contact_adapter.EachCo
     }
 
     class EachContactView extends RecyclerView.ViewHolder{
-        List<Contacts> contactsViewHolder;
+        List<Contacts> contactsListView;
 
         TextView name, area_chamber_shop, phone;
         ImageView imageView;
 
-        public EachContactView(View itemView, final List<Contacts> contacts) {
+        private EachContactView(View itemView, final List<Contacts> contacts) {
             super(itemView);
 
-            contactsViewHolder = contacts;
+            contactsListView = contactsList;
+
             name = itemView.findViewById(R.id.name);
             area_chamber_shop = itemView.findViewById(R.id.area_chamber_shop);
             phone = itemView.findViewById(R.id.phone);
-            imageView = itemView.findViewById(R.id.phoneIcon);
+            imageView = itemView.findViewById(R.id.navigation_right);
+
         }
     }
 }

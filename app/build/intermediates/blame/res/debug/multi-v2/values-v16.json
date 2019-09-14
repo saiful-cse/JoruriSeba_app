@@ -4,7 +4,17 @@
             "outputFile": "E:\\Android Project\\Android Apps Develop\\Joruri seba\\version- 2.1\\JoruriSeba-V-2.1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Saiful\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\a28102fa06625fa7e3adea96104b254d\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Saiful\\.gradle\\caches\\transforms-2\\files-2.1\\83546b2de190b89a16b17702d662fde4\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Saiful\\.gradle\\caches\\transforms-2\\files-2.1\\711cb25a9f3efd808eac410849d7674c\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Saiful\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\c7385013eb737740309e76e481363a61\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]

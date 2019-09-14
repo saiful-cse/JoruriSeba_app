@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#96c5ed">
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:background="@color/activityBackground">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,7 +16,8 @@
         android:text="ইন্টারনেট কানেকশন অন করুন"
         android:gravity="center"
         android:textSize="20sp"
-        android:textColor="@color/colorAccent"
+        android:layout_centerInParent="true"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/warning" />
 
     <android.support.v4.widget.SwipeRefreshLayout
@@ -25,20 +29,18 @@
             android:id="@+id/recyclerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-
-
     </android.support.v4.widget.SwipeRefreshLayout>
 
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:paddingTop="5dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/gas_gogagog_footer1">
-    </com.google.android.gms.ads.AdView>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        />
 
 </RelativeLayout>
